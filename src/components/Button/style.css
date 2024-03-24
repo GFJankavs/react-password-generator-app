@@ -1,0 +1,18 @@
+.button {
+    width: 100%;
+    background-color: var(--color-mint-green);
+    border: 2px solid var(--color-mint-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-dark-gunmetal);
+    text-transform: uppercase;
+    gap: 24px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: var(--color-mint-green);
+}

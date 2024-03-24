@@ -1,0 +1,31 @@
+.password {
+    background-color: var(--color-dark-gunmetal);
+    padding: 19px 32px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-platinum);
+}
+
+.password-input {
+    all: unset;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 60%;
+}
+
+.password-copy {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.password-copy > span {
+    text-transform: uppercase;
+    color: var(--color-mint-green);
+}
