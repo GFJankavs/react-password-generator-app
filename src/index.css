@@ -1,0 +1,44 @@
+:root {
+  --color-dark-gunmetal: #24232c;
+  --color-roman-silver: #817d92;
+  --color-platinum: #e6e5ea;
+  --color-eerie-black: #18171f;
+  --color-mint-green: #a4ffaf;
+  --color-tart-orange: #f64a4a;
+  --color-coral: #fb7c58;
+  --color-crayola: #f8cd65;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/static/JetBrainsMono-Bold.ttf");
+  src: url("/fonts/static/JetBrainsMono-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: normal, italic;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'JetBrains Mono', sans-serif;
+}
+
+.heading--l {
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 43px;
+}
+
+.heading--m {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+}
+
+.body {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+}
