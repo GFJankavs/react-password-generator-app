@@ -1,4 +1,4 @@
-const evaluatePasswordStrength = (password: string): string {
+const evaluatePasswordStrength = (password: string): string => {
     const hasLowercase = /[a-z]/.test(password);
     const hasUppercase = /[A-Z]/.test(password);
     const hasNumber = /\d/.test(password);
