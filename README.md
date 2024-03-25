@@ -32,7 +32,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Repo link](https://github.com/GFJankavs/react-password-generator-app)
-- Live Site URL: [Live site](https://your-live-site-url.com)
+- Live Site URL: [Live site](https://gfjankavs.github.io/react-password-generator-app/)
 
 ## My process
 
