@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { FC } from "react";
 import "./style.css";
 
-const CharacterSlider = () => {
-    const [value, setValue] = useState<number>(0);
+type Props = {
+    value: number;
+    setValue: (value: number) => void;
+}
 
+const CharacterSlider: FC<Props> = ({ value, setValue }) => {
     return (
         <div className="wrapper">
             <label htmlFor="character_length" className="top">

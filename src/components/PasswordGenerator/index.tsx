@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import CharacterSlider from "../CharacterSlider";
 import "./style.css";
 import Checkbox from "../Checkbox";
 import PasswordField from "../PasswordField";
 import StrengthLevel from "../StrengthLevel";
 import Button from "../Button";
+import { usePasswordContext } from "../../providers/passwordContext";
+import generatePassword from "../../utils/generatePassword";
+import evaluatePasswordStrength from "../../utils/evaluatePasswordStrength";
 
 const optionTexts = {
     uppercase: "Include Uppercase Letters",
@@ -13,38 +16,49 @@ const optionTexts = {
     symbols: "Include Symbols",
 };
 
-type PasswordOptions = {
-    [key in keyof typeof optionTexts]: boolean;
-};
-
 const PasswordGenerator = () => {
-    const [selectedOptions, setSelectedOptions] = useState<PasswordOptions>({
-        lowercase: false,
-        uppercase: false,
-        numbers: false,
-        symbols: false,
-    });
+    const { passwordData, setPasswordData } = usePasswordContext();
+
+    const allOptionsEmpty = useMemo(() => Object.values(passwordData.options).every((option) => !option), [passwordData.options]);
+
+    const handlePasswordGeneration = () => {
+        const generatedPassword = generatePassword(passwordData.options, passwordData.characterLength);
+
+        setPasswordData({ ...passwordData, password: generatedPassword });
+    }
+
+    const passwordStrength = useMemo(() => {
+        if (passwordData.password === "") return null;
+        return evaluatePasswordStrength(passwordData.password);
+    }, [passwordData.password]);
 
     return (
         <div className="password-generator">
-            <PasswordField />
+            <PasswordField value={passwordData.password} setValue={(value) => setPasswordData({ ...passwordData, password: value })} />
             <div className="content-password">
-                <CharacterSlider />
+                <CharacterSlider value={passwordData.characterLength} setValue={(value) => setPasswordData({ ...passwordData, characterLength: value })} />
                 <div className="password-options">
-                    {Object.keys(selectedOptions).map((option) => {
+                    {Object.entries(passwordData.options).map(([key, option]) => {
                         return (
-                            <Checkbox key={option}>
+                            <Checkbox
+                                key={key}
+                                value={option}
+                                onCheck={(value) => {
+                                    const newOptions = { ...passwordData.options, [key]: value };
+                                    const newPasswordData = { ...passwordData, options: newOptions };
+                                    setPasswordData(newPasswordData);
+                                }}>
                                 {
                                     optionTexts[
-                                        option as keyof typeof optionTexts
+                                    key as keyof typeof optionTexts
                                     ]
                                 }
                             </Checkbox>
                         );
                     })}
                 </div>
-                <StrengthLevel value={null} />
-                <Button>Generate</Button>
+                <StrengthLevel value={passwordStrength} />
+                <Button disabled={allOptionsEmpty || passwordData.characterLength === 0} onClick={() => handlePasswordGeneration()}>Generate</Button>
             </div>
         </div>
     );

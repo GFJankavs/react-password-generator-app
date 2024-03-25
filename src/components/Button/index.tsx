@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from "react";
+import { ButtonHTMLAttributes, FC, PropsWithChildren, useState } from "react";
 import ArrowIcon from "../../icons/ArrowIcon";
 import "./style.css";
 
@@ -7,19 +7,19 @@ const colors = {
     false: "var(--color-dark-gunmetal)",
 };
 
-type Props = {
-    children?: ReactNode;
-};
+type Props = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
 
-const Button: FC<Props> = ({ children }) => {
+const Button: FC<Props> = ({ children, disabled, onClick }) => {
     const [hovered, setHovered] = useState<boolean>(false);
 
     return (
         <button
             type="button"
             className="button"
+            disabled={disabled}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onClick={onClick}
         >
             <span className="text_body">{children}</span>
             {children && (

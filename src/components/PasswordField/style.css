@@ -29,3 +29,7 @@
     text-transform: uppercase;
     color: var(--color-mint-green);
 }
+
+.password-copy:disabled {
+    cursor: not-allowed;
+}

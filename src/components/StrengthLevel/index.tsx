@@ -17,7 +17,7 @@ const handleStrengthStyle = (value: number | null, index: number) => {
     }
 };
 
-const handleStrengthText = (value: number) => {
+const handleStrengthText = (value: number | null) => {
     switch (value) {
         case 1:
             return "Too weak!";
@@ -28,7 +28,7 @@ const handleStrengthText = (value: number) => {
         case 4:
             return "Strong";
         default:
-            return "Too weak!";
+            return "";
     }
 };
 

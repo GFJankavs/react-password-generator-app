@@ -1,16 +1,19 @@
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import "./style.css";
 
 type Props = {
-    children?: React.ReactNode;
+    children?: ReactNode;
+    value: boolean;
+    onCheck: (value: boolean) => void;
 };
 
-const Checkbox: FC<Props> = ({ children }) => {
-    const [checked, setChecked] = useState<boolean>(false);
+const Checkbox: FC<Props> = ({ children, onCheck, value }) => {
+    const [checked, setChecked] = useState<boolean>(value);
 
     const handleCheckbox = (value: React.MouseEvent<HTMLInputElement>) => {
         const target = value.target as HTMLInputElement;
         setChecked(target.checked);
+        onCheck(target.checked);
     };
 
     return (
