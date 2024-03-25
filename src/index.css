@@ -49,3 +49,20 @@
     font-size: 18px;
     line-height: 23px;
 }
+
+@media screen and (max-width: 480px) {
+    .heading--l {
+        font-size: 24px;
+        line-height: 31px;
+    }
+
+    .heading--m {
+        font-size: 18px;
+        line-height: 23px;
+    }
+
+    .text_body {
+        font-size: 16px;
+        line-height: 21px;
+    }
+}
