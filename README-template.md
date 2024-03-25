@@ -1,5 +1,7 @@
 # Frontend Mentor - Password generator app solution
 
+![Design preview for the Password generator app coding challenge](./preview.jpg)
+
 This is a solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
@@ -15,8 +17,6 @@ This is a solution to the [Password generator app challenge on Frontend Mentor](
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
